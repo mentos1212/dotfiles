@@ -1,0 +1,96 @@
+[[plugins]] # プラグインマネージャ
+repo = 'Shougo/dein.vim'
+
+[[plugins]] # 非同期処理全般（neocomplete/unite-grep）
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]] # vim全般の統合UI
+repo = 'Shougo/unite.vim'
+hook_add = 'source ~/dotfiles/vim/plugins/plugins-unite.vim'
+
+[[plugins]] # ファイルエクスプローラ
+repo = 'Shougo/vimfiler.vim'
+hook_add = '''
+    nnoremap ,f :VimFiler -split -simple -winwidth=35 -no-quit<CR>
+    let g:vimfiler_as_default_explorer = 1
+'''
+
+[[plugins]] # color scheme
+repo = 'tpope/vim-vividchalk'
+hook_add = '''
+    set background=dark
+    autocmd ColorScheme * highlight LineNr ctermfg=239
+'''
+hook_post_source = 'colorscheme vividchalk'
+
+[[plugins]] # 補完
+repo = 'Shougo/neocomplete.vim'
+hook_add = 'source ~/dotfiles/vim/plugins/plugins-neocomplete.vim'
+hook_post_source = '''
+    highlight Pmenu ctermbg=8
+    highlight PmenuSel ctermbg=1
+    highlight PmenuSbar ctermbg=0
+'''
+
+[[plugins]] # 最近開いたファイル関連のunite拡張
+repo = 'Shougo/neomru.vim'
+
+[[plugins]] # yank history関連のunite拡張
+repo = 'Shougo/neoyank.vim'
+
+[[plugins]] # コメントアウトショートカット
+repo = "tyru/caw.vim"
+hook_add = '''
+    nmap <C-@> <Plug>(caw:hatpos:toggle)
+    vmap <C-@> <Plug>(caw:hatpos:toggle)
+'''
+
+[[plugins]] # vimとtmuxでペイン移動ショートカットを共通化
+repo = 'christoomey/vim-tmux-navigator'
+hook_add = 'source ~/dotfiles/vim/plugins/plugins-tmux-navigator.vim'
+
+[[plugins]] # status lineのカスタマイズ
+repo = 'itchyny/lightline.vim'
+hook_add = 'source ~/dotfiles/vim/plugins/plugins-lightline.vim'
+
+[[plugins]] # gitまわり(statuslineにbranch名を表示する用)
+repo = 'tpope/vim-fugitive'
+
+[[plugins]] # syntax check
+repo = 'scrooloose/syntastic'
+hook_add = 'source ~/dotfiles/vim/plugins/plugins-syntastic.vim'
+
+[[plugins]] # html5 syntax
+repo = 'othree/html5.vim'
+
+[[plugins]] # toml syntax
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+[[plugins]] # 現在のカーソル位置でのfiletypeを検出
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]] # カーソル位置のコンテキストに合わせてftを切り替える
+repo = 'osyo-manga/vim-precious'
+depends = ['context_filetype.vim']
+
+[[plugins]] # タブの設定をファイルから自動検出してあわせる
+repo = 'tpope/vim-sleuth'
+
+[[plugins]] # vim内でソースファイル実行
+repo = 'thinca/vim-quickrun'
+hook_add = 'source ~/dotfiles/vim/plugins/plugins-quickrun.vim'
+
+[[plugins]] # 括弧などを自動で閉じる
+repo = 'Raimondi/delimitMate'
+
+[[plugins]] # visual modeで+を押すことで選択範囲拡大
+repo = 'terryma/vim-expand-region'
+
+[[plugins]] # visual modeでstar searchを行う
+repo = 'bronson/vim-visual-star-search'
+
+[[plugins]] # javaのomni補完
+repo = 'artur-shaik/vim-javacomplete2'
+

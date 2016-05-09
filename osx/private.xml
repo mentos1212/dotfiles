@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<root>
+  <!-- 英数+keyでCOMMAND_R+keyをトグル。COMMAND_Rは修飾要素として使う -->
+  <item>
+    <name>Private Key EISUUtoCMDR</name>
+    <appendix>英数キーの空打ちで「英数」</appendix>
+    <appendix>英数キーを押している間に他のキーを打つとCMD_Rとして動作</appendix>
+    <identifier>remap.jis_eisuu_to_cmdr</identifier>
+    <autogen>__KeyOverlaidModifier__ KeyCode::JIS_EISUU, KeyCode::COMMAND_R, KeyCode::JIS_EISUU</autogen>
+  </item>
+
+  <!-- かな+keyでOPTION_L+key -->
+  <item>
+    <name>Private Key KANAtoOPTIONL</name>
+    <appendix>かなキーの空打ちで「かな」</appendix>
+    <appendix>かなキーを押している間に他のキーを打つとOPTION_Lとして動作</appendix>
+    <identifier>remap.jis_kana_to_optionr</identifier>
+    <autogen>__KeyOverlaidModifier__ KeyCode::JIS_KANA, KeyCode::OPTION_L, KeyCode::JIS_KANA</autogen>
+  </item>
+
+  <!-- 右側のコマンドキーはCOMMAND_Lがトグルされる（左側のコマンドキーも当然COMMAND_Lがトグルされる） -->
+  <item>
+    <name>Private Key CMDRtoCMDL</name>
+    <appendix>CMD_R to CMD_L</appendix>
+    <identifier>CMD_RをCMD_Lに</identifier>
+    <autogen>__KeyToKey__ KeyCode::COMMAND_R, KeyCode::COMMAND_L</autogen>
+  </item>
+
+  <!-- エスケープのバインド -->
+  <item>
+    <name>Private Key CTRL+JtoESC</name>
+    <appendix>Change CONTROL_L + J to ESC</appendix>
+    <identifier>private.app_CONTROL_L_J_to_ESCAPE</identifier>
+    <autogen>__KeyToKey__ KeyCode::J, ModifierFlag::CONTROL_L, KeyCode::ESCAPE</autogen>
+  </item>
+
+  <!-- HyperSwitch用 -->
+  <item>
+    <name>Private Key CMDR+TABtoOPTION+TAB</name>
+    <appendix>Change CMD_R + TAB to OPTION + TAB</appendix>
+    <identifier>private.app_CMDR_TAB_to_OPTION+TAB</identifier>
+    <autogen>__KeyToKey__ KeyCode::TAB, ModifierFlag::COMMAND_R, KeyCode::TAB, ModifierFlag::OPTION_L</autogen>
+  </item>
+
+  <!-- メニューバーにフォーカス -->
+  <item>
+    <name>Private Key CMDR+MtoCTRL+F2</name>
+    <appendix>Change CMD_R + M to CTRL + F2</appendix>
+    <identifier>private.app_CMDR_M_to_CTRL+F2</identifier>
+    <autogen>__KeyToKey__ KeyCode::M, ModifierFlag::COMMAND_R, KeyCode::F2, ModifierFlag::CONTROL_L</autogen>
+  </item>
+
+  <!-- ツールバーにフォーカス -->
+  <item>
+    <name>Private Key CMDR+NtoCTRL+F5</name>
+    <appendix>Change CMD_R + N to CTRL + F5</appendix>
+    <identifier>private.app_CMDR_N_to_CTRL+F5</identifier>
+    <autogen>__KeyToKey__ KeyCode::N, ModifierFlag::COMMAND_R, KeyCode::F5, ModifierFlag::CONTROL_L</autogen>
+  </item>
+
+  <!-- Emacs modeはデフォルトで入っているが、chrome, microsoft系以外で動作させたくないため自前で記述 -->
+  <item>
+    <name>Private Key Ctrl+PtoCursorUp</name>
+    <appendix>Change CONTROL + P to CURSOR_UP (chrome, microsoft)</appendix>
+    <identifier>private.app_CONTROL_L_P_to_CURSOR_UP</identifier>
+    <only>GOOGLE_CHROME, POWERPOINT, WORD, EXCEL, OUTLOOK</only>
+    <autogen>__KeyToKey__ KeyCode::P, ModifierFlag::CONTROL_L, KeyCode::CURSOR_UP</autogen>
+  </item>
+
+  <item>
+    <name>Private Key Ctrl+NtoCursorDown</name>
+    <appendix>Change CONTROL + N to CURSOR_DOWN (chrome, microsoft)</appendix>
+    <identifier>private.app_CONTROL_L_N_to_CURSOR_DOWN</identifier>
+    <only>GOOGLE_CHROME, POWERPOINT, WORD, EXCEL, OUTLOOK</only>
+    <autogen>__KeyToKey__ KeyCode::N, ModifierFlag::CONTROL_L, KeyCode::CURSOR_DOWN</autogen>
+  </item>
+
+  <item>
+    <name>Private Key Ctrl+BtoCursorLeft</name>
+    <appendix>Change CONTROL + B to CURSOR_LEFT (chrome, microsoft)</appendix>
+    <identifier>private.app_CONTROL_L_B_to_CURSOR_LEFT</identifier>
+    <only>GOOGLE_CHROME, POWERPOINT, WORD, EXCEL, OUTLOOK</only>
+    <autogen>__KeyToKey__ KeyCode::B, ModifierFlag::CONTROL_L, KeyCode::CURSOR_LEFT</autogen>
+  </item>
+
+  <item>
+    <name>Private Key Ctrl+FtoCursorRight</name>
+    <appendix>Change CONTROL + F to CURSOR_RIGHT (chrome, microsoft)</appendix>
+    <identifier>private.app_CONTROL_L_F_to_CURSOR_RIGHT</identifier>
+    <only>GOOGLE_CHROME, POWERPOINT, WORD, EXCEL, OUTLOOK</only>
+    <autogen>__KeyToKey__ KeyCode::F, ModifierFlag::CONTROL_L, KeyCode::CURSOR_RIGHT</autogen>
+  </item>
+
+</root>

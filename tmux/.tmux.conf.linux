@@ -1,0 +1,29 @@
+## status line customize
+set -g status-bg colour160
+set -g pane-active-border-fg colour160
+set-window-option -g window-status-current-format "#[bg=colour47][#I:#W]"
+
+# ペイン移動（vimと共通）
+is_vim='echo "#{pane_current_command}" | grep -iqE "(^|\/)g?(view|n?vim?x?)(diff)?$"'
+bind -n S-Left if-shell "$is_vim" "send-keys C-Left" "select-pane -L"
+bind -n S-Down if-shell "$is_vim" "send-keys C-Down" "select-pane -D"
+bind -n S-Up if-shell "$is_vim" "send-keys C-Up" "select-pane -U"
+bind -n S-Right if-shell "$is_vim" "send-keys C-Right" "select-pane -R"
+
+# ウィンドウ関連
+# 新規ウィンドウを開くときは現在のディレクトリで開き、window nameをディレクトリ名にする
+bind -n M-N run "(tmux new-window -c #{pane_current_path} -n $(basename #{pane_current_path}))"
+bind -n M-O kill-window     # current windowをkill
+bind -n M-U kill-window -a  # current window以外を全てkill
+bind -n M-L next-window     # 右に移動
+bind -n M-H previous-window # 左に移動
+
+# 現在のwindowを左右のwindowと入れ替え
+bind -n S-M-Left run 'cw=$(tmux display-message -p \#I) && [ $cw -gt 0 ] && tmux swap-window -s $cw -t $(($cw - 1))'
+bind -n S-M-Right run 'cw=$(tmux display-message -p \#I) && tmux swap-window -s $cw -t $(($cw + 1))'
+
+# remoteのcopy modeはM-s
+bind -n M-s copy-mode
+# remoteでのcopyをlocalのclipboardに転送
+bind-key -t vi-copy y copy-pipe "nc localhost 8377"
+bind-key -t vi-copy Enter copy-pipe "nc localhost 8377"

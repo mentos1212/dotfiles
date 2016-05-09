@@ -1,0 +1,13 @@
+[alias]
+    tree = log --graph --format=\"%x09%C(green)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s\"
+[user]
+    name = Naoya Okada
+    email = mentos121228@gmail.com
+[core]
+    excludesfile = ~/.gitignore_global
+[grep]
+    lineNumber = true
+[color]
+    ui = auto
+[fetch]
+    prune = true
