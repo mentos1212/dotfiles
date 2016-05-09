@@ -1,0 +1,12 @@
+*~
+.DS_Store
+sftp-config.json
+*.sublime-project
+*.sublime-workspace
+.Trashes
+*.o
+*.pyc
+.python-version
+__pycache__
+.idea
+.project
