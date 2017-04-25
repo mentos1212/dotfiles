@@ -25,5 +25,5 @@ bind -n S-M-Right run 'cw=$(tmux display-message -p \#I) && tmux swap-window -s 
 # remoteのcopy modeはM-s
 bind -n M-s copy-mode
 # remoteでのcopyをlocalのclipboardに転送
-bind-key -t vi-copy y copy-pipe "nc localhost 8377"
-bind-key -t vi-copy Enter copy-pipe "nc localhost 8377"
+if-shell '[ $(echo "$(tmux -V | cut -d" " -f2) < 2.4" | bc) -eq 1 ]' "bind -t vi-copy y copy-pipe 'nc localhost 8377'" "bind -T copy-mode-vi y send -X copy-pipe-and-cancel 'nc localhost 8377'"
+if-shell '[ $(echo "$(tmux -V | cut -d" " -f2) < 2.4" | bc) -eq 1 ]' "bind -t vi-copy Enter copy-pipe 'nc localhost 8377'" "bind -T copy-mode-vi Enter send -X copy-pipe-and-cancel 'nc localhost 8377'"
