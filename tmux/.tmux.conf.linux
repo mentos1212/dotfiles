@@ -14,7 +14,6 @@ bind -n S-Right if-shell "$is_vim" "send-keys C-Right" "select-pane -R"
 # 新規ウィンドウを開くときは現在のディレクトリで開き、window nameをディレクトリ名にする
 bind -n M-N run "(tmux new-window -c #{pane_current_path} -n $(basename #{pane_current_path}))"
 bind -n M-O kill-window     # current windowをkill
-bind -n M-U kill-window -a  # current window以外を全てkill
 bind -n M-L next-window     # 右に移動
 bind -n M-H previous-window # 左に移動
 

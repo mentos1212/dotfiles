@@ -91,4 +91,60 @@
     <autogen>__KeyToKey__ KeyCode::F, ModifierFlag::CONTROL_L, KeyCode::CURSOR_RIGHT</autogen>
   </item>
 
+  <!-- Home/End/PageUp/PageDown -->
+  <item>
+    <name>Home</name>
+    <identifier>remap.home</identifier>
+    <autogen>__KeyToKey__ KeyCode::I, ModifierFlag::OPTION_L, KeyCode::HOME,</autogen>
+  </item>
+
+  <item>
+    <name>End</name>
+    <identifier>remap.end</identifier>
+    <autogen>__KeyToKey__ KeyCode::U, ModifierFlag::OPTION_L, KeyCode::END,</autogen>
+  </item>
+
+  <item>
+    <name>PageUp</name>
+    <identifier>remap.pageup</identifier>
+    <autogen>__KeyToKey__ KeyCode::K, ModifierFlag::OPTION_L, KeyCode::PAGEUP,</autogen>
+  </item>
+
+  <item>
+    <name>PageDown</name>
+    <identifier>remap.pagedown</identifier>
+    <autogen>__KeyToKey__ KeyCode::J, ModifierFlag::OPTION_L, KeyCode::PAGEDOWN,</autogen>
+  </item>
+
+  <!-- Spectacle用 -->
+  <item>
+    <name>Spectacle Left Half</name>
+    <identifier>private.app_left_half</identifier>
+    <autogen>__KeyToKey__ KeyCode::CURSOR_LEFT, ModifierFlag::FN | ModifierFlag::NONE, KeyCode::F1, ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::COMMAND_R </autogen>
+  </item>
+
+  <item>
+    <name>Spectacle Right Half</name>
+    <identifier>private.app_right_half</identifier>
+    <autogen>__KeyToKey__ KeyCode::CURSOR_RIGHT, ModifierFlag::FN | ModifierFlag::NONE, KeyCode::F2, ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::COMMAND_R </autogen>
+  </item>
+
+  <item>
+    <name>Spectacle Next Display</name>
+    <identifier>private.app_next_display</identifier>
+    <autogen>__KeyToKey__ KeyCode::CURSOR_RIGHT, ModifierFlag::FN | ModifierFlag::SHIFT_L, KeyCode::F3, ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::COMMAND_R </autogen>
+  </item>
+
+  <item>
+    <name>Spectacle Previous Display</name>
+    <identifier>private.app_previous_display</identifier>
+    <autogen>__KeyToKey__ KeyCode::CURSOR_LEFT, ModifierFlag::FN | ModifierFlag::SHIFT_L, KeyCode::F4, ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::COMMAND_R </autogen>
+  </item>
+
+  <item>
+    <name>Spectacle Full Screen</name>
+    <identifier>private.app_full_screen</identifier>
+    <autogen>__KeyToKey__ KeyCode::CURSOR_UP, ModifierFlag::FN | ModifierFlag::NONE, KeyCode::F5, ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::COMMAND_R </autogen>
+  </item>
+
 </root>
