@@ -325,6 +325,15 @@ function git-changed-files(){
     CURSOR=$#BUFFER
 }
 
+# checkoutしたことのあるブランチを指定してcheckout
+function git-checkout-branch(){
+    FILTERD=$(git reflog | grep checkout | cut -d' ' -f8 | awk '!a[$0]++' | peco)
+    BUFFER=${BUFFER}"git checkout "${FILTERD}
+    CURSOR=$#BUFFER
+    zle accept-line
+    zle clear-screen
+}
+
 # tmuxのsessionを選択してattach
 function tmux-session-attach(){
     local session=$(tmux ls < /dev/null | peco | awk '{print $1}' | tr -d :)
@@ -399,6 +408,8 @@ if [ -e /usr/local/bin/peco ]; then
     bindkey '^g^p' git-cherry-pick
     zle -N git-changed-files
     bindkey '^g^f' git-changed-files
+    zle -N git-checkout-branch
+    bindkey '^g^r' git-checkout-branch
     zle -N tmux-session-attach
     bindkey '^u^i' tmux-session-attach
     zle -N git-commit
