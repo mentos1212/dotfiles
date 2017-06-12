@@ -91,6 +91,22 @@
     <autogen>__KeyToKey__ KeyCode::F, ModifierFlag::CONTROL_L, KeyCode::CURSOR_RIGHT</autogen>
   </item>
 
+  <item>
+  <name>Private Key Ctrl+HtoBS</name>
+  <appendix>Change CONTROL + F to BS (chrome, microsoft)</appendix>
+  <identifier>private.app_CONTROL_L_H_to_BS</identifier>
+  <only>GOOGLE_CHROME, POWERPOINT, WORD, EXCEL, OUTLOOK</only>
+  <autogen>__KeyToKey__ KeyCode::H, ModifierFlag::CONTROL_L, KeyCode::DELETE</autogen>
+  </item>
+
+  <item>
+  <name>Private Key Ctrl+DtoDELETE</name>
+  <appendix>Change CONTROL + D to BS (chrome, microsoft)</appendix>
+  <identifier>private.app_CONTROL_L_D_to_DELETE</identifier>
+  <only>GOOGLE_CHROME, POWERPOINT, WORD, EXCEL, OUTLOOK</only>
+  <autogen>__KeyToKey__ KeyCode::D, ModifierFlag::CONTROL_L, KeyCode::FORWARD_DELETE</autogen>
+  </item>
+
   <!-- Home/End/PageUp/PageDown -->
   <item>
     <name>Home</name>
