@@ -67,8 +67,8 @@ setopt complete_aliases
 # 履歴関連
 # ----------------------------
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=200000
+SAVEHIST=200000
 
 # 重複する履歴は無視
 setopt hist_ignore_dups
@@ -81,6 +81,18 @@ setopt hist_ignore_space
 
  # ヒストリに保存するときに余分なスペースを削除する
 setopt hist_reduce_blanks
+
+# 複数の zsh を同時に使う時など history ファイルに上書きせず追加する
+setopt append_history
+
+# 重複するコマンドが記憶されるとき、古い方を削除する
+setopt hist_ignore_all_dups
+
+# 重複するコマンドが保存されるとき、古い方を削除する
+setopt hist_save_no_dups
+
+# 開始時刻と実行時間を記録
+setopt extended_history
 
 # 色の設定
 # ---------------------------
