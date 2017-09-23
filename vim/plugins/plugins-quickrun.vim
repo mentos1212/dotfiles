@@ -6,5 +6,5 @@ let g:quickrun_config._={ 'runner':'vimproc',
 \       "runner/vimproc/updatetime" : 10,
 \       "outputter/buffer/close_on_empty" : 1,
 \ }
-nnoremap <silent> <C-r><C-r> :QuickRun<CR>
+nnoremap <silent> <C-r> :QuickRun<CR>
 
