@@ -1,4 +1,5 @@
 [[plugins]] # プラグインマネージャ
+
 repo = 'Shougo/dein.vim'
 
 [[plugins]] # 非同期処理全般（neocomplete/unite-grep）
@@ -91,6 +92,10 @@ repo = 'terryma/vim-expand-region'
 [[plugins]] # visual modeでstar searchを行う
 repo = 'bronson/vim-visual-star-search'
 
-[[plugins]] # javaのomni補完
-repo = 'artur-shaik/vim-javacomplete2'
+# [[plugins]] # javaのomni補完
+# repo = 'artur-shaik/vim-javacomplete2'
+
+[[plugins]] # goの補完
+repo = 'fatih/vim-go'
+on_ft = 'go'
 
