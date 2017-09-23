@@ -264,14 +264,22 @@ fi
 
 # pecoの設定
 # ----------------------------
+# tac commandがないときはtail -rで代用する
+if which tac > /dev/null 2>&1; then
+else
+    alias tac='tail -r'
+fi
+
 # コマンド履歴検索
 function peco-history-selection() {
-    # tac commandがないときはtail -rで代用
-    if which tac > /dev/null 2>&1; then # コマンドが存在すれば
-    else                                 # コマンドが存在しなければ
-        alias tac='tail -r'
-    fi
     BUFFER=`history -n 1 | tac | awk '!a[$0]++' | peco`
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
+
+# コマンドマスター履歴検索
+function peco-master-history-selection() {
+    BUFFER=`tac ~/.zsh_history_master | awk '!a[$0]++' | peco`
     CURSOR=$#BUFFER
     zle reset-prompt
 }
@@ -406,6 +414,8 @@ function docker-rmi(){
 if [ -e /usr/local/bin/peco ]; then
     zle -N peco-history-selection
     bindkey '^r' peco-history-selection
+    zle -N peco-master-history-selection
+    bindkey '^[r' peco-master-history-selection
     zle -N peco-cdr
     bindkey '^u^r' peco-cdr
     zle -N peco-find
@@ -626,4 +636,7 @@ fi
 if [ -e ~/dotfiles/zsh/.yzshrc ]; then
     source ~/dotfiles/zsh/.yzshrc
 fi
+
+# go
+export GOPATH=$HOME/.go
 
