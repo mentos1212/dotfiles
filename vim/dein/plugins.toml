@@ -98,4 +98,7 @@ repo = 'bronson/vim-visual-star-search'
 [[plugins]] # goの補完
 repo = 'fatih/vim-go'
 on_ft = 'go'
+hook_add = '''
+    let g:go_fmt_command = "goimports"
+'''
 
