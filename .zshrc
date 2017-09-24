@@ -515,6 +515,7 @@ alias -g T="| tail"
 # その他便利系
 alias pg='ps aux | grep'
 alias zconf='vim ~/.zshrc'
+alias zconfc='vim ~/.zshrc_custom'
 alias vconf='vim ~/.vimrc'
 alias vconfb='vim ~/dotfiles/vim/init/basic.vim'
 alias vconfp='vim ~/dotfiles/vim/dein/plugins.toml'
@@ -639,4 +640,4 @@ fi
 
 # go
 export GOPATH=$HOME/.go
-
+export PATH="$PATH:$GOPATH/bin"
