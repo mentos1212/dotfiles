@@ -67,24 +67,57 @@ zplug load
 autoload -Uz compinit
 compinit -C #for git-completion
 
+# 補完候補を省スペースに
+setopt list_packed
+# 補完候補が複数あるときに自動的に一覧表示する
+setopt auto_menu
+# エイリアスのコマンドも補完対象とする
+setopt complete_aliases
+# 語の途中でもカーソル位置で補完する
+setopt complete_in_word
+# コマンドラインの引数で --prefix=/usr などの = 以降でも補完できる
+setopt magic_equal_subst
+# 変数名を補完する
+setopt auto_param_keys
+
+# 補完のバインド
+bindkey "^I" menu-complete
 # Shift-Tabで補完候補を逆順する("\e[Z"でも動作する)
 bindkey "^[[Z" reverse-menu-complete
 
-# 補完候補を省スペースに
-setopt list_packed
-
-# 補完時に大文字小文字を無視
+### 補完方法毎にグループ化する。
+zstyle ':completion:*' format '%B%F{yellow}%d%f%b'
+zstyle ':completion:*' group-name ''
+### 補完侯補をメニューから選択する。
+### select=2: 補完候補を一覧から選択する。補完候補が2つ以上なければすぐに補完する。
+zstyle ':completion:*:default' menu select=2
+### 補完候補に色を付ける。
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+### 補完候補がなければより曖昧に候補を探す。
+### m:{a-z}={A-Z}: 小文字を大文字に変えたものでも補完する。
+### r:|[._-]=*: 「.」「_」「-」の前にワイルドカード「*」があるものとして補完する。
+#zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z} r:|[._-]=*'
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-# ../ の後は今いるディレクトリを補完しない
-zstyle ':completion:*' ignore-parents parent pwd ..
+zstyle ':completion:*' keep-prefix
+zstyle ':completion:*' recent-dirs-insert both
 
-# 補完候補が複数あるときに自動的に一覧表示する
-setopt auto_menu
+### 補完候補
+### _oldlist 前回の補完結果を再利用する。
+### _complete: 補完する。
+### _match: globを展開しないで候補の一覧から補完する。
+### _history: ヒストリのコマンドも補完候補とする。
+### _ignored: 補完候補にださないと指定したものも補完候補とする。
+### _approximate: 似ている補完候補も補完候補とする。
+### _prefix: カーソル以降を無視してカーソル位置までで補完する。
+#zstyle ':completion:*' completer _oldlist _complete _match _history _ignored _approximate _prefix
+zstyle ':completion:*' completer _complete _ignored
 
-# エイリアスのコマンドも補完対象とする
-setopt complete_aliases
-
+## 補完候補をキャッシュする。
+zstyle ':completion:*' use-cache yes
+zstyle ':completion:*' cache-path ~/.zsh/cache
+## 詳細な情報を使わない
+zstyle ':completion:*' verbose no
 
 # 履歴関連
 # ----------------------------
