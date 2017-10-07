@@ -40,6 +40,28 @@ setopt pushd_ignore_dups
 # C-s, C-qによるフロー制御を使わないようにする
 setopt NO_FLOW_CONTROL
 
+# Plugin管理
+# ----------------------------
+source ~/.zplug/init.zsh
+
+zplug "b4b4r07/enhancd", use:init.sh
+ENHANCD_DISABLE_HOME=1
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-history-substring-search"
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+# source plugins and add commands to $PATH
+zplug load
+
 # 補完関連
 # ---------------------------
 autoload -Uz compinit
