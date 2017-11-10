@@ -44,13 +44,8 @@ setopt NO_FLOW_CONTROL
 # ----------------------------
 source ~/.zplug/init.zsh
 
-zplug "b4b4r07/enhancd", use:init.sh
-ENHANCD_DISABLE_HOME=1
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-history-substring-search"
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -673,15 +668,6 @@ alias api='ansible-playbook -i'
 #             $filename
 #         fi
 #     done
-# fi
-
-## Set path for pyenv
-# export PYENV_ROOT="${HOME}/.pyenv"
-# if [ -d "${PYENV_ROOT}" ]; then
-#     export PATH=${PYENV_ROOT}/bin:$PATH
-#     eval "$(pyenv init -)"
-#     eval "$(pyenv virtualenv-init -)"
-#     export PATH=$PATH:~/.pyenv/plugins/pyenv-virtualenv/shims:~/.pyenv/shims:~/.pyenv/bin
 # fi
 
 # source additional settings
