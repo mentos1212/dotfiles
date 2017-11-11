@@ -41,21 +41,14 @@ setopt pushd_ignore_dups
 setopt NO_FLOW_CONTROL
 
 # Plugin管理
-# ----------------------------
-source ~/.zplug/init.zsh
-
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-completions"
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
+# ---------------------------
+local ZSH_PLUGIN_PATH=~/.zsh_plugins
+if [ -d $ZSH_PLUGIN_PATH/zsh-completions/src ]; then
+    fpath=($ZSH_PLUGIN_PATH/zsh-completions/src $fpath)
 fi
-# source plugins and add commands to $PATH
-zplug load
+if [ -f $ZSH_PLUGIN_PATH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    source $ZSH_PLUGIN_PATH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
 
 # 補完関連
 # ---------------------------
