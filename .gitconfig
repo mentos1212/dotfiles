@@ -9,5 +9,7 @@
     lineNumber = true
 [color]
     ui = auto
+[push]
+    default = simple
 [fetch]
     prune = true
